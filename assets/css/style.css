@@ -1,0 +1,62 @@
+body {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+}
+
+/* Formulaire centré et un peu plus large */
+form {
+    width: 520px; 
+    margin: 60px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* Titre */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Ligne nom + prénom */
+input[name="nom"],
+input[name="prenom"] {
+    width: 44%;
+    display: inline-block;
+}
+
+/* Petit espace entre les deux */
+input[name="nom"] {
+    margin-right: 2%;
+}
+
+/* Filière pleine largeur */
+select {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Style des champs */
+input, select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Bouton */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #27ae60;
+}
