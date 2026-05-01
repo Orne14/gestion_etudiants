@@ -1,3 +1,3 @@
 <?php
-require_once "config/db.php";
+require "config/db.php";
 ?>
