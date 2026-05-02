@@ -14,6 +14,13 @@ $filieres = $db->query("SELECT * FROM filieres")->fetchAll();
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <?php
+    if (isset($_GET['success']) && $_GET['success'] == 1) {
+        echo "<p style='color:green; text-align:center; font-weight:bold;'>
+        ✔ Étudiant ajouté avec succès
+        </p>";
+    }
+    ?>
     <p id="error" style="color:red; text-align:center;"></p>
     <form action="traitement.php" method="POST">
     <h2>Ajouter un étudiant</h2>
