@@ -14,11 +14,12 @@ $filieres = $db->query("SELECT * FROM filieres")->fetchAll();
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <p id="error" style="color:red; text-align:center;"></p>
     <form action="traitement.php" method="POST">
     <h2>Ajouter un étudiant</h2>
 
-    <input type="text" name="nom" placeholder="Nom" required>
-    <input type="text" name="prenom" placeholder="Prénom" required>
+    <input type="text" name="nom" placeholder="Nom">
+    <input type="text" name="prenom" placeholder="Prénom">
 
     <select name="filiere_id" required>
         <option value="">Choisir une filière</option>
@@ -33,5 +34,8 @@ $filieres = $db->query("SELECT * FROM filieres")->fetchAll();
 
     <button type="submit">Ajouter</button>
 </form>
+
+
+<script src="assets/js/script.js"></script>
 </body>
 </html>
