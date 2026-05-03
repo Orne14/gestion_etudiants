@@ -1,6 +1,12 @@
 <?php
 require "config/db.php";
 
+// Nombre d'étudiants
+$nbEtudiants = $db->query("SELECT COUNT(*) FROM etudiants")->fetchColumn();
+
+// Nombre de filières
+$nbFilieres = $db->query("SELECT COUNT(*) FROM filieres")->fetchColumn();
+
 //Récupération des filières
 $filieres = $db->query("SELECT * FROM filieres")->fetchAll();
 
@@ -21,6 +27,24 @@ $etudiants = $db->query("
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <div class="header">
+       🎓 Gestion Étudiants
+    </div>
+
+    <div class="dashboard">
+
+        <div class="card">
+            <h3>👨‍🎓 Étudiants</h3>
+            <p><?= $nbEtudiants ?></p>
+        </div>
+
+        <div class="card">
+            <h3>📚 Filières</h3>
+            <p><?= $nbFilieres ?></p>
+        </div>
+
+    </div>
+
     <?php
         if (isset($_GET['success'])): ?>
             <p id="success-message" class="success">
@@ -32,6 +56,12 @@ $etudiants = $db->query("
     <?php if (isset($_GET['deleted'])): ?>
         <p id="success-message" class="success">
             ✔ Étudiant supprimé avec succès
+        </p>
+    <?php endif; ?>
+
+    <?php if (isset($_GET['updated'])): ?>
+        <p id="success-message" class="success">
+            ✔ Étudiant modifié avec succès
         </p>
     <?php endif; ?>
 
@@ -77,7 +107,9 @@ $etudiants = $db->query("
                         <td><?= htmlspecialchars($etudiant['prenom']) ?></td>
                         <td><?= htmlspecialchars($etudiant['filiere_nom']) ?></td>
                         <td>
-                            <a href="#" class="btn btn-edit">Modifier</a>
+                            <a href="modifier.php?id=<?= $etudiant['id'] ?>" class="btn btn-edit">
+                                Modifier
+                            </a>
                             <a href="supprimer.php?id=<?= $etudiant['id'] ?>" class="btn btn-delete delete-btn">
                                 Supprimer
                             </a>
