@@ -22,12 +22,19 @@ $etudiants = $db->query("
 </head>
 <body>
     <?php
-    if (isset($_GET['success']) && $_GET['success'] == 1) {
-        echo "<p style='color:green; text-align:center; font-weight:bold;'>
-        ✔ Étudiant ajouté avec succès
-        </p>";
-    }
+        if (isset($_GET['success'])): ?>
+            <p id="success-message" class="success">
+                ✔ Étudiant ajouté avec succès
+            </p>
+        <?php endif; 
     ?>
+
+    <?php if (isset($_GET['deleted'])): ?>
+        <p id="success-message" class="success">
+            ✔ Étudiant supprimé avec succès
+        </p>
+    <?php endif; ?>
+
     <p id="error" style="color:red; text-align:center;"></p>
     <form action="traitement.php" method="POST">
         <h2>Ajouter un étudiant</h2>
@@ -51,27 +58,38 @@ $etudiants = $db->query("
     
     <h2>Liste des étudiants</h2>
 
-    <table border="1" cellpadding="10" cellspacing="0" style="margin:auto; border-collapse:collapse;">
-        <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Filière</th>
-            <th>Actions</th>
-        </tr>
+    <?php if (count($etudiants) > 0): ?>
 
-        <?php foreach($etudiants as $etudiant): ?>
-        <tr>
-            <td><?= htmlspecialchars($etudiant['nom']) ?></td>
-            <td><?= htmlspecialchars($etudiant['prenom']) ?></td>
-            <td><?= htmlspecialchars($etudiant['filiere_nom']) ?></td>
-            <td>
-                <a href="#" class="btn btn-edit">Modifier</a>
-                <a href="#" class="btn btn-delete">Supprimer</a>
-            </td>
-        </tr>
-        <?php endforeach; ?>
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Filière</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
 
-    </table>
+            <tbody>
+                <?php foreach ($etudiants as $etudiant): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($etudiant['nom']) ?></td>
+                        <td><?= htmlspecialchars($etudiant['prenom']) ?></td>
+                        <td><?= htmlspecialchars($etudiant['filiere_nom']) ?></td>
+                        <td>
+                            <a href="#" class="btn btn-edit">Modifier</a>
+                            <a href="supprimer.php?id=<?= $etudiant['id'] ?>" class="btn btn-delete delete-btn">
+                                Supprimer
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+    <?php else: ?>
+        <p class="empty-message">Aucun étudiant enregistré pour le moment.</p>
+    <?php endif; ?>
 
 <script src="assets/js/script.js"></script>
 </body>

@@ -116,3 +116,25 @@ tr:hover {
 .btn-delete:hover {
     background-color: #c0392b;
 }
+
+/* affichage message succès */
+.success {
+    text-align: center;
+    color: white;
+    background-color: #2ecc71;
+    padding: 10px;
+    width: 50%;
+    margin: 10px auto;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.empty-message {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    color: #666;
+    font-style: italic;
+}
