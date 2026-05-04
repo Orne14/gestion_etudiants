@@ -34,12 +34,12 @@ $etudiants = $db->query("
     <div class="dashboard">
 
         <div class="card">
-            <h3>👨‍🎓 Étudiants</h3>
+            <h3>👨‍🎓 Nombres Étudiants</h3>
             <p><?= $nbEtudiants ?></p>
         </div>
 
         <div class="card">
-            <h3>📚 Filières</h3>
+            <h3>📚 Nombres Filières</h3>
             <p><?= $nbFilieres ?></p>
         </div>
 

@@ -42,6 +42,15 @@ $filieres = $db->query("SELECT * FROM filieres")->fetchAll();
 
 <p id="error"></p>
 
+<div style="padding-top:10px;text-align:center;margin-bottom:10px">
+    <?php if(isset($etudiant)): ?>
+        <p>
+            Étudiant sélectionné : 
+            <?= $etudiant['nom'] . " " . $etudiant['prenom'] ?>
+        </p>
+    <?php endif; ?>
+</div>
+
 <form action="update.php" method="POST">
 
     <input type="hidden" name="id" value="<?= $etudiant['id'] ?>">

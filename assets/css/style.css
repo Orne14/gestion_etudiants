@@ -170,14 +170,14 @@ form div {
 .dashboard {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 40px;
     margin: 20px auto;
     flex-wrap: wrap;
 }
 
 .card {
     background: white;
-    width: 200px;
+    width: 400px;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
